@@ -7,10 +7,15 @@
 <body>
 <label><input type="number" id="meter" name="meter" required> m </label>
 <button type="button" onclick="convert(meter.value)">=</button>
-<label><input type="number" id="feet" name="feet" disabled> ft </label>
+<label><input type="text" id="feet" name="feet" disabled> ft </label>
 <script>
     function convert(a) {
-        document.getElementById("feet").value = a*3.2808;
+        if(a<0){
+            document.getElementById("feet").value = "Error!";
+        }else{
+            document.getElementById("feet").value = a*3.2808;
+        }
+
     }
 </script>
 </body>

@@ -8,7 +8,12 @@
 <script>
     let a = parseFloat(prompt("Nhập cạnh thứ nhất: a = "));
     let b = parseFloat(prompt("Nhập cạnh thứ hai: b = "));
-    alert("Diện tích hình tam giác có cạnh thứ nhất = "+a+", cạnh thứ hai = "+b + " là: " + a*b/2)
+    while(a<=0||b<=0){
+        alert("Nhập không hợp lệ, mời nhập lại:");
+        a = parseFloat(prompt("Nhập cạnh thứ nhất: a = "));
+        b = parseFloat(prompt("Nhập cạnh thứ hai: b = "));
+    }
+    alert("Diện tích hình tam giác vuông có cạnh góc vuông thứ nhất = "+a+", cạnh góc vuông thứ hai = "+b + " là: " + a*b/2)
 </script>
 </body>
 </html>

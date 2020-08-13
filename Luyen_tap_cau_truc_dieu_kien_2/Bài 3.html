@@ -7,6 +7,9 @@
 <body>
 <script>
     let a = parseFloat(prompt("Nhập cạnh hình vuông a = "));
+    while(a<=0){
+        a=parseFloat(prompt("Nhập không hợp lệ, mời nhập lại:"));
+    }
     alert("Diện tích hình vuông có cạnh a = "+a + " là: " + a*a)
 </script>
 </body>

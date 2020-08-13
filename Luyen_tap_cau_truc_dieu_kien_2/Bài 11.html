@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Bài 6</title>
     <style>
-        table{
+        table {
             border-collapse: collapse;
-            padding:50px;
+            padding: 50px;
         }
-        th,td{
+
+        th, td {
             border: 1px solid #dddddd;
             padding: 30px;
             text-align: center;
@@ -20,33 +21,45 @@
     <caption><h1>Bảng tính thuế cá nhân</h1></caption>
     <tr>
         <th>Thu nhập (triệu/năm)</th>
-        <td> 0-60 </td>
-        <td> 60-120 </td>
-        <td> 120-216 </td>
-        <td> >216 </td>
+        <td> 0-60</td>
+        <td> 60-120</td>
+        <td> 120-216</td>
+        <td> >216</td>
     </tr>
     <tr>
         <th>Thuế suất (%)</th>
-        <td> 5 </td>
-        <td> 10 </td>
-        <td> 15 </td>
-        <td> 20 </td>
+        <td> 5</td>
+        <td> 10</td>
+        <td> 15</td>
+        <td> 20</td>
     </tr>
-</table><br>
+</table>
+<br>
 <label>Thu nhập (triệu/năm) <input type="number" id="salary" name="salary" required></label><br><br>
-<label><button type="button" onclick="start(salary.value)">Tính thuế</button> </label><br><br>
-<label>Thuế phải nộp (triệu): <input type="number" id="money" disabled></label>
+<label>
+    <button type="button" onclick="start(salary.value)">Tính thuế</button>
+</label><br><br>
+<label>Thuế phải nộp (triệu): <input type="text" id="money" disabled></label>
 <script>
     function start(a) {
-        let money = 0;
-        if(a<=60&&a>0)
-            money = a*5/100;
-        else if(a<=120)
-            money = 60*5/100 + (a-60)*10/100;
-        else if(a<=216)
-            money = 60*5/100 + 60*10/100 + (a-120)*15/100;
-        else money = 60*1678 + 60*1734 + 120*15/100 + (a-216)*20/100;
-        document.getElementById("money").value = money;
+        if (a < 0) {
+            document.getElementById("money").value = "Error";
+        } else {
+            if (a === "0") {
+                document.getElementById("money").value = "0";
+            } else {
+                let money = 0;
+                if (a <= 60 && a > 0) {
+                    money = a * 5 / 100;
+                } else if (a <= 120) {
+                    money = 60 * 5 / 100 + (a - 60) * 10 / 100;
+                } else if (a <= 216) {
+                    money = 60 * 5 / 100 + 60 * 10 / 100 + (a - 120) * 15 / 100;
+                } else money = 60 * 1678 + 60 * 1734 + 120 * 15 / 100 + (a - 216) * 20 / 100;
+                document.getElementById("money").value = money;
+            }
+        }
+
     }
 </script>
 </body>

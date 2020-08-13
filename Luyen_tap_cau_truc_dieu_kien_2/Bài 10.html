@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Bài 6</title>
     <style>
-        table{
+        table {
             border-collapse: collapse;
-            padding:50px;
+            padding: 50px;
         }
-        th,td{
+
+        th, td {
             border: 1px solid #dddddd;
             padding: 30px;
             text-align: center;
@@ -20,33 +21,48 @@
     <caption><h1>Bảng tính giá điện</h1></caption>
     <tr>
         <th>Số điện</th>
-        <td> 0-50 </td>
-        <td> 51-100 </td>
-        <td> 101-200 </td>
-        <td> >200 </td>
+        <td> 0-50</td>
+        <td> 51-100</td>
+        <td> 101-200</td>
+        <td> >200</td>
     </tr>
     <tr>
         <th>Thành tiền (VND/kWh)</th>
-        <td> 1.678 </td>
-        <td> 1.734 </td>
-        <td> 2.014 </td>
-        <td> 2.536 </td>
+        <td> 1.678</td>
+        <td> 1.734</td>
+        <td> 2.014</td>
+        <td> 2.536</td>
     </tr>
-</table><br>
+</table>
+<br>
 <label>Số điện <input type="number" id="sd" name="sd" required></label><br><br>
-<label><button type="button" onclick="start(sd.value)">Tính tiền</button> </label><br><br>
-<label>Thành tiền (VND): <input type="number" id="money" disabled></label>
+<label>
+    <button type="button" onclick="start(sd.value)">Tính tiền</button>
+</label><br><br>
+<label>Thành tiền (VND): <input type="text" id="money" disabled></label>
 <script>
     function start(a) {
-        let money = 0;
-        if(a<=50&&a>0)
-            money = a*1678;
-        else if(a<=100)
-            money = 50*1678 + (a-50)*1734;
-        else if(a<=200)
-            money = 50*1678 + 50*1734+(a-100)*2014;
-        else money = 50*1678 + 50*1734+100*2014+(a-200)*2536;
-        document.getElementById("money").value = money;
+        if (a < 0) {
+            document.getElementById("money").value = "Error";
+        } else if (a === "0") {
+            document.getElementById("money").value = "0";
+        } else {
+            let money = 0;
+            if (a <= 50 && a > 0) {
+                money = a * 1678;
+            } else {
+                if (a <= 100) {
+                    money = 50 * 1678 + (a - 50) * 1734;
+                } else {
+                    if (a <= 200) {
+                        money = 50 * 1678 + 50 * 1734 + (a - 100) * 2014;
+                    } else {
+                        money = 50 * 1678 + 50 * 1734 + 100 * 2014 + (a - 200) * 2536;
+                    }
+                }
+            }
+            document.getElementById("money").value = money;
+        }
     }
 </script>
 </body>
