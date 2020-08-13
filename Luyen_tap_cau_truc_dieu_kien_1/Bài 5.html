@@ -12,17 +12,22 @@
 <p id="rs"></p>
 <script>
     function rank() {
-        let d1=parseFloat(document.getElementById("dkt").value);
-        let d2=parseFloat(document.getElementById("dgk").value);
-        let d3=parseFloat(document.getElementById("dck").value);
-        let rs=(d1 +(d2*2)+ (d3*3))/6;
-        if(rs < 4)
-            document.getElementById("rs").innerHTML = "Xếp loại kém";
-        else if(rs<6.5)
-            document.getElementById("rs").innerHTML = "Xếp loại trung bình";
-        else if(rs<8)
-            document.getElementById("rs").innerHTML = "Xếp loại khá";
-        else document.getElementById("rs").innerHTML = "Xếp loại giỏi";
+        let dkt = parseFloat(document.getElementById("dkt").value);
+        let dgk = parseFloat(document.getElementById("dgk").value);
+        let dck = parseFloat(document.getElementById("dck").value);
+        if (dkt < 0 || dkt > 10 || dgk < 0 || dgk > 10 || dck < 0 || dck > 10) {
+            document.getElementById("rs").innerHTML = "Lỗi nhập điểm!";
+        } else {
+            let rs = (dkt + (dgk * 2) + (dck * 3)) / 6;
+            if (rs < 4)
+                document.getElementById("rs").innerHTML = "Xếp loại kém";
+            else if (rs < 6.5)
+                document.getElementById("rs").innerHTML = "Xếp loại trung bình";
+            else if (rs < 8)
+                document.getElementById("rs").innerHTML = "Xếp loại khá";
+            else document.getElementById("rs").innerHTML = "Xếp loại giỏi";
+        }
+
     }
 </script>
 </body>

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Bài 6</title>
     <style>
-        table{
+        table {
             border-collapse: collapse;
-            padding:50px;
+            padding: 50px;
         }
-        th,td{
+
+        th, td {
             border: 1px solid #dddddd;
             padding: 30px;
             text-align: center;
@@ -20,33 +21,46 @@
     <caption><h1>Bảng tính hoa hồng theo doanh số</h1></caption>
     <tr>
         <th>Doanh số (VND)</th>
-        <td> <= 1.000.000 </td>
-        <td> <= 10.000.000 </td>
-        <td> <= 50.000.000 </td>
-        <td> > 50.000.000 </td>
+        <td> <= 1.000.000</td>
+        <td> <= 10.000.000</td>
+        <td> <= 50.000.000</td>
+        <td> > 50.000.000</td>
     </tr>
     <tr>
         <th>Hoa hồng (%)</th>
-        <td> 5 </td>
-        <td> 10 </td>
-        <td> 15 </td>
-        <td> 20 </td>
+        <td> 5</td>
+        <td> 10</td>
+        <td> 15</td>
+        <td> 20</td>
     </tr>
-</table><br>
+</table>
+<br>
 <label>Doanh số (VND): <input type="number" id="ds" name="ds" required></label><br><br>
-<label><button type="button" onclick="start(ds.value)">Tính hoa hồng</button> </label><br><br>
-<label>Hoa hồng (VND): <input type="number" id="hh" disabled></label>
+<label>
+    <button type="button" onclick="start(ds.value)">Tính hoa hồng</button>
+</label><br><br>
+<label>Hoa hồng (VND): <input type="text" id="hh" disabled></label>
 <script>
     function start(a) {
-        let hh;
-        if(a<Math.pow(10,6))
-            hh=5/100;
-        else if(a<Math.pow(10,7))
-            hh=10/100;
-        else if(a<5*Math.pow(10,7))
-            hh=15/100;
-        else hh=20/100;
-        document.getElementById("hh").value = a*hh;
+        if (a < 0) {
+            document.getElementById("hh").value = "Error!";
+        } else {
+            let hh;
+            if (a < Math.pow(10, 6)) {
+                hh = 5 / 100;
+            } else {
+                if (a < Math.pow(10, 7)) {
+                    hh = 10 / 100;
+                } else {
+                    if (a < 5 * Math.pow(10, 7)) {
+                        hh = 15 / 100;
+                    } else {
+                        hh = 20 / 100;
+                    }
+                }
+            }
+            document.getElementById("hh").value = a * hh;
+        }
     }
 </script>
 </body>
