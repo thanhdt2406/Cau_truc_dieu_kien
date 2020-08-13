@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập a:"));
+    let b = parseInt(prompt("Nhập b:"));
+    let c = parseInt(prompt("Nhập c:"));
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " có vô số nghiệm");
+            } else alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " vô nghiệm");
+        } else alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " có 1 nghiệm x = " + (-c / b));
+    } else {
+        let delta = b * b - 4 * a * c;
+        if (delta < 0)
+            alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " vô nghiệm");
+        else if (delta == 0)
+            alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " có nghiệm kép x1 = x2 = " + (-b / 2 / a));
+        else alert("Phương trình " + a + "x^2 + " + b + "x + " + c + " = 0" + " có 2 nghiệm x1 = " + (-b - Math.sqrt(delta)) / (2 * a) + "; x2 = " + (-b + Math.sqrt(delta)) / (2 * a));
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<label>Điểm kiểm tra: <input id="dkt" type="number" name="dkt" min="0" max="10"></label><br><br>
+<label>Điểm thi giữa kì: <input id="dgk" type="number" name="dgk" min="0" max="10"></label><br><br>
+<label>Điểm thi cuối kì: <input id="dck" type="number" name="dck" min="0" max="10"></label><br><br>
+<input type="button" value="Xếp hạng" onclick="rank();">
+<p id="rs"></p>
+<script>
+    function rank() {
+        let d1=parseFloat(document.getElementById("dkt").value);
+        let d2=parseFloat(document.getElementById("dgk").value);
+        let d3=parseFloat(document.getElementById("dck").value);
+        let rs=(d1 +(d2*2)+ (d3*3))/6;
+        if(rs < 4)
+            document.getElementById("rs").innerHTML = "Xếp loại kém";
+        else if(rs<6.5)
+            document.getElementById("rs").innerHTML = "Xếp loại trung bình";
+        else if(rs<8)
+            document.getElementById("rs").innerHTML = "Xếp loại khá";
+        else document.getElementById("rs").innerHTML = "Xếp loại giỏi";
+    }
+</script>
+</body>
+</html>

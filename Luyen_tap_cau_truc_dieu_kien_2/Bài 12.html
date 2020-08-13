@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+<script>
+    let money = parseFloat(prompt("Nhập số tiền ban đầu (VND):"));
+    let month = parseFloat(prompt("Nhập số tháng cho vay (tháng):"));
+    let rate = parseFloat(prompt("Nhập lãi xuất hàng tháng (%):"));
+    rate = rate/100;
+    rs = money * Math.pow((1 + rate), month);
+    alert("Tổng số tiền phải trả là: " + rs);
+    alert("Số tiền lãi là: "+ (parseFloat(rs)- money));
+</script>
+</body>
+</html>

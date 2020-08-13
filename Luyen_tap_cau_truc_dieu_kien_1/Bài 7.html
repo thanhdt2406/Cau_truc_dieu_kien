@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            padding:50px;
+        }
+        th,td{
+            border: 1px solid #dddddd;
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <caption><h1>Bảng giá cước điện thoại</h1></caption>
+    <tr>
+        <th>Thời gian</th>
+        <td>6 giây đầu</td>
+        <td>1 giây tiếp theo</td>
+    </tr>
+    <tr>
+        <th>Giá tiền (VND)</th>
+        <td> 80,00 </td>
+        <td> 13,33 </td>
+    </tr>
+</table><br>
+<label>Thời gian (s): <input type="number" id="tg" name="tg" required></label><br><br>
+<label><button type="button" onclick="start(tg.value)">Thành tiền</button> </label><br><br>
+<label>Tiền (VND): <input type="number" id="money" disabled></label>
+<script>
+    function start(a) {
+        let money;
+        if(a<6)
+            money = 80;
+        else money = 80 + (a-6)*13.33;
+        document.getElementById("money").value = money;
+    }
+</script>
+</body>
+</html>

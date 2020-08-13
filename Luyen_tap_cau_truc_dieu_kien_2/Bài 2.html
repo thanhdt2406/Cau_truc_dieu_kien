@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<label><input type="number" id="meter" name="meter" required> m </label>
+<button type="button" onclick="convert(meter.value)">=</button>
+<label><input type="number" id="feet" name="feet" disabled> ft </label>
+<script>
+    function convert(a) {
+        document.getElementById("feet").value = a*3.2808;
+    }
+</script>
+</body>
+</html>
